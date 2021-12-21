@@ -43,11 +43,15 @@ function operate(operator, num1, num2){
 }
 
 //button creation
-const calc = document.createElement('div')
+
+buttonContainer.classList.add('btnForDisplay');
+
+
 
 const btnNum1 = document.createElement('button')
 btnNum1.textContent = "1"
 buttonContainer.appendChild(btnNum1)
+
 
 const btnNum2 = document.createElement('button')
 btnNum2.textContent = "2"
@@ -105,5 +109,18 @@ const btnClear = document.createElement('button')
 btnClear.textContent = "Clear"
 buttonContainer.appendChild(btnClear)
 
-const display = document.getElementById('display')
-display.textContent="DUMMY NUMBERS 123456789"
+
+btnNum1.addEventListener('click',()=>{
+
+    document.getElementById('display').textContent = document.getElementById('display').textContent + btnNum1.textContent
+})
+
+let children = buttonContainer.children;
+
+
+
+// btnNum1.addEventListener('click' () => 
+
+
+// }
+// )
