@@ -45,6 +45,7 @@ function operate(operator, num1, num2){
 //button creation
 
 let calcBtns = ['1','2','3','4','5','6','7','8','9','0','+','-','*','/','=','Clear']
+let display = document.getElementById('display');
 
 function createBtn(calcBtns){
 
@@ -52,13 +53,10 @@ for (let i=0; i<calcBtns.length;i++){
     const btn = document.createElement('button');
     buttonContainer.appendChild(btn);
     btn.textContent = calcBtns[i]
-    btn.addEventListener('click',()=>{
-    let display = document.getElementById('display')
-    display.textContent = btn.textContent
-    })
 
 }}
 createBtn(calcBtns)
+
 
 // buttonContainer.classList.add('btnForDisplay');
 
