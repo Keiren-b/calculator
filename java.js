@@ -44,78 +44,99 @@ function operate(operator, num1, num2){
 
 //button creation
 
-buttonContainer.classList.add('btnForDisplay');
+let calcBtns = ['1','2','3','4','5','6','7','8','9','0','+','-','*','/','=','Clear']
+
+function createBtn(calcBtns){
+
+for (let i=0; i<calcBtns.length;i++){
+    const btn = document.createElement('button');
+    buttonContainer.appendChild(btn);
+    btn.textContent = calcBtns[i]
+    btn.addEventListener('click',()=>{
+    let display = document.getElementById('display')
+    display.textContent = btn.textContent
+    })
+
+}}
+createBtn(calcBtns)
+
+// buttonContainer.classList.add('btnForDisplay');
 
 
 
-const btnNum1 = document.createElement('button')
-btnNum1.textContent = "1"
-buttonContainer.appendChild(btnNum1)
+
+// const btnNum1 = document.createElement('button')
+// btnNum1.textContent = "1"
+// buttonContainer.appendChild(btnNum1)
 
 
-const btnNum2 = document.createElement('button')
-btnNum2.textContent = "2"
-buttonContainer.appendChild(btnNum2)
+// const btnNum2 = document.createElement('button')
+// btnNum2.textContent = "2"
+// buttonContainer.appendChild(btnNum2)
 
-const btnNum3 = document.createElement('button')
-btnNum3.textContent = "3"
-buttonContainer.appendChild(btnNum3)
+// const btnNum3 = document.createElement('button')
+// btnNum3.textContent = "3"
+// buttonContainer.appendChild(btnNum3)
 
-const btnNum4 = document.createElement('button')
-btnNum4.textContent = "4"
-buttonContainer.appendChild(btnNum4)
+// const btnNum4 = document.createElement('button')
+// btnNum4.textContent = "4"
+// buttonContainer.appendChild(btnNum4)
 
-const btnNum5 = document.createElement('button')
-btnNum5.textContent = "5"
-buttonContainer.appendChild(btnNum5)
+// const btnNum5 = document.createElement('button')
+// btnNum5.textContent = "5"
+// buttonContainer.appendChild(btnNum5)
 
-const btnNum6 = document.createElement('button')
-btnNum6.textContent = "6"
-buttonContainer.appendChild(btnNum6)
+// const btnNum6 = document.createElement('button')
+// btnNum6.textContent = "6"
+// buttonContainer.appendChild(btnNum6)
 
-const btnNum7 = document.createElement('button')
-btnNum7.textContent = "7"
-buttonContainer.appendChild(btnNum7)
+// const btnNum7 = document.createElement('button')
+// btnNum7.textContent = "7"
+// buttonContainer.appendChild(btnNum7)
 
-const btnNum8 = document.createElement('button')
-btnNum8.textContent = "8"
-buttonContainer.appendChild(btnNum8)
+// const btnNum8 = document.createElement('button')
+// btnNum8.textContent = "8"
+// buttonContainer.appendChild(btnNum8)
 
-const btnNum9 = document.createElement('button')
-btnNum9.textContent = "9"
-buttonContainer.appendChild(btnNum9)
+// const btnNum9 = document.createElement('button')
+// btnNum9.textContent = "9"
+// buttonContainer.appendChild(btnNum9)
 
-const btnAdd = document.createElement('button')
-btnAdd.textContent = "+"
-buttonContainer.appendChild(btnAdd)
+// const btnNum0 = document.createElement('button')
+// btnNum0.textContent = "0"
+// buttonContainer.appendChild(btnNum0)
 
-const btnSubtract = document.createElement('button')
-btnSubtract.textContent = "-"
-buttonContainer.appendChild(btnSubtract)
+// const btnAdd = document.createElement('button')
+// btnAdd.textContent = "+"
+// buttonContainer.appendChild(btnAdd)
 
-const btnMultiply = document.createElement('button')
-btnMultiply.textContent = "x"
-buttonContainer.appendChild(btnMultiply)
+// const btnSubtract = document.createElement('button')
+// btnSubtract.textContent = "-"
+// buttonContainer.appendChild(btnSubtract)
 
-const btnDivide = document.createElement('button')
-btnDivide.textContent = "/"
-buttonContainer.appendChild(btnDivide)
+// const btnMultiply = document.createElement('button')
+// btnMultiply.textContent = "x"
+// buttonContainer.appendChild(btnMultiply)
 
-const btnEquals = document.createElement('button')
-btnEquals.textContent = "="
-buttonContainer.appendChild(btnEquals)
+// const btnDivide = document.createElement('button')
+// btnDivide.textContent = "/"
+// buttonContainer.appendChild(btnDivide)
 
-const btnClear = document.createElement('button')
-btnClear.textContent = "Clear"
-buttonContainer.appendChild(btnClear)
+// const btnEquals = document.createElement('button')
+// btnEquals.textContent = "="
+// buttonContainer.appendChild(btnEquals)
+
+// const btnClear = document.createElement('button')
+// btnClear.textContent = "Clear"
+// buttonContainer.appendChild(btnClear)
 
 
-btnNum1.addEventListener('click',()=>{
+// btnNum1.addEventListener('click',()=>{
 
-    document.getElementById('display').textContent = document.getElementById('display').textContent + btnNum1.textContent
-})
+//     document.getElementById('display').textContent = document.getElementById('display').textContent + btnNum1.textContent
+// })
 
-let children = buttonContainer.children;
+// let children = buttonContainer.children;
 
 
 
