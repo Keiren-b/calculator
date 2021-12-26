@@ -44,15 +44,13 @@ function operate(operator, num1, num2){
 
 //button creation
 
-let calcBtns = ['1','2','3','4','5','6','7','8','9','0','+','-','*','/','=','Clear']
+let calcBtns = ['1','2','3','4','5','6','7','8','9','0',' + ',' - ',' * ',' / ',' = ','Clear']
 let display = document.getElementById('display');
 
 let x = ''
-function updateX() {
-  
-}   
 
-let calcDisplay = ""
+
+
 
 
 function createBtn(calcBtns){
@@ -64,7 +62,7 @@ function createBtn(calcBtns){
   
         btn.addEventListener('click', ()=>{
 
-            if (calcBtns[i]<=10){
+            if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
     
                 display.textContent = display.textContent + btn.textContent
         }
@@ -77,7 +75,6 @@ function createBtn(calcBtns){
 createBtn(calcBtns)
 
 
-console.log(x)
 
 
 
