@@ -47,16 +47,79 @@ function operate(operator, num1, num2){
 let calcBtns = ['1','2','3','4','5','6','7','8','9','0','+','-','*','/','=','Clear']
 let display = document.getElementById('display');
 
+let x = ''
+function updateX() {
+  
+}   
+
+let calcDisplay = ""
+
+
 function createBtn(calcBtns){
 
-for (let i=0; i<calcBtns.length;i++){
-    const btn = document.createElement('button');
-    buttonContainer.appendChild(btn);
-    btn.textContent = calcBtns[i]
+    for (let i=0; i<calcBtns.length;i++){
+        const btn = document.createElement('button');
+        buttonContainer.appendChild(btn);
+        btn.textContent = calcBtns[i]
+  
+        btn.addEventListener('click', ()=>{
 
-}}
+            if (calcBtns[i]<=10){
+    
+                display.textContent = display.textContent + btn.textContent
+        }
+         x = document.getElementById('display').innerHTML
+         return x
+
+    })}}
+
+
 createBtn(calcBtns)
 
+
+console.log(x)
+
+
+
+// const btn = buttonContainer.querySelectorAll('button')      
+// console.log(btn)
+
+// function click(){
+
+//     for (let i=0; i<calcBtns.length; i++){
+
+//     btn.addEventListener('click', ()=>{
+
+//         if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
+
+//             display.textContent = display.textContent + btn.textContent
+    
+
+//     }
+// })}}
+
+// click()
+
+// btn.forEach(button)addEventListener('click', ()=>{
+
+//     if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
+
+//         display.textContent = display.textContent + btn.textContent
+
+
+//     }})
+
+// let num1=0
+// let num2=1
+// let num3;
+
+// for (i=1; i<parseInt(n); i++){
+//     num3 = num1+num2;
+//     num1 = num2;
+//     num2=num3;
+// }
+
+// return num3
 
 // buttonContainer.classList.add('btnForDisplay');
 
