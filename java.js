@@ -44,7 +44,7 @@ function operate(operator, num1, num2){
 
 //button creation
 
-let calcBtns = ['1','2','3','4','5','6','7','8','9','0',' + ',' - ',' * ',' / ',' = ','Clear']
+let calcBtns = [1,2,3,4,5,6,7,8,9,0, ' + ', '- ',' * ',' / ',' = ','Clear']
 let display = document.getElementById('display');
 
 let x = ''
@@ -74,9 +74,10 @@ function createBtn(calcBtns){
 
 createBtn(calcBtns)
 
-
-
-
+function split(x){
+    return x.split(3)
+}
+console.log(split(x))
 
 // const btn = buttonContainer.querySelectorAll('button')      
 // console.log(btn)
