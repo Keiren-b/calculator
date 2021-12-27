@@ -92,7 +92,10 @@ function secondNum(){
     num2 = parseInt(totalDisplay.slice(totalDisplay.indexOf(' +')+3))
 }
 
-
+function test(){
+    console.log(num1+num2)
+}
+test()
 
 // let equals = document.getElementsByClassName('equals')
 // console.log(equals)
