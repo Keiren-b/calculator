@@ -44,13 +44,11 @@ function operate(operator, num1, num2){
 
 //button creation
 
-let calcBtns = [1,2,3,4,5,6,7,8,9,0, ' + ', '- ',' * ',' / ',' = ','Clear']
+let calcBtns = [1,2,3,4,5,6,7,8,9,0, ' + ', ' - ',' * ',' / ',' = ','Clear']
 let display = document.getElementById('display');
-
-let x = ''
-
-
-
+let totalDisplay = ''
+let num1 = 0
+let num2 = 0
 
 
 function createBtn(calcBtns){
@@ -59,25 +57,51 @@ function createBtn(calcBtns){
         const btn = document.createElement('button');
         buttonContainer.appendChild(btn);
         btn.textContent = calcBtns[i]
-  
+        btn.value = btn.textContent
+
+        if(btn.textContent === ' = '){
+            btn.addEventListener('click', ()=>{
+                firstNum();
+                secondNum();
+                        })
+        }
+    
         btn.addEventListener('click', ()=>{
 
-            if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
-    
-                display.textContent = display.textContent + btn.textContent
+        if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
+            display.textContent = display.textContent + btn.value;
+            totalDisplay = totalDisplay + btn.value
         }
-         x = document.getElementById('display').innerHTML
-         return x
-
+    
+    
     })}}
+
+
+
 
 
 createBtn(calcBtns)
 
-function split(x){
-    return x.split(3)
+
+function firstNum(){
+   num1 = parseInt(totalDisplay.slice(0, totalDisplay.indexOf(' + ')))
+
 }
-console.log(split(x))
+
+function secondNum(){
+    num2 = parseInt(totalDisplay.slice(totalDisplay.indexOf(' +')+3))
+}
+
+
+
+// let equals = document.getElementsByClassName('equals')
+// console.log(equals)
+// equals.addEventListener('click', ()=> {
+//     something()
+//     somethingElse()
+// } )
+
+
 
 // const btn = buttonContainer.querySelectorAll('button')      
 // console.log(btn)
