@@ -7,16 +7,19 @@ function add(num1,num2){
 
 function subtract(num1,num2){
     let result = num1-num2
+    alert(result)
     return result
 }
 
 function multiply(num1,num2){
     let result = num1*num2
+    alert(result)
     return result
 }
 
 function divide(num1,num2){
     let result = num1/num2
+    alert(result)
     return result
 }
 
@@ -82,14 +85,14 @@ function findOperator(){
     if (totalDisplay.indexOf('+')!=-1){
         operator = '+'
     }
-    else if (totalDisplay.search('-')!=-1){
+    else if (totalDisplay.indexOf('-')!=-1){
      operator = '-'
  }
  
-     else if (totalDisplay.search('*')!=-1){
+     else if (totalDisplay.indexOf('*')!=-1){
      operator = '*'
  }
-     else if (totalDisplay.search('/')!=-1){
+     else if (totalDisplay.indexOf('/')!=-1){
      operator = '/'
  }
 return operator}
@@ -97,10 +100,10 @@ return operator}
 function test(){
     let btn = document.getElementById('buttonContainer').children.item(14)
     btn.addEventListener('click', ()=>{
-    
-        num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(' + ')))
-        num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(' +')+3))
         findOperator()
+        num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(operator)))
+        num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2))
+        
 
       
         operate(operator, num1, num2)
