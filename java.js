@@ -1,5 +1,6 @@
 function add(num1,num2){
     let result = num1+num2
+    alert(result)
     return result;
     
 }
@@ -40,7 +41,7 @@ function operate(operator, num1, num2){
         let result = divide(num1,num2)
         return result
     }
-alert(result)
+
 }
 
 //button creation
@@ -90,7 +91,8 @@ function findOperator(){
  }
      else if (totalDisplay.search('/')!=-1){
      operator = '/'
- }}
+ }
+return operator}
 
 function test(){
     let btn = document.getElementById('buttonContainer').children.item(14)
