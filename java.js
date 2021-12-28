@@ -1,6 +1,7 @@
 function add(num1,num2){
     let result = num1+num2
-    return result
+    return result;
+    
 }
 
 function subtract(num1,num2){
@@ -47,6 +48,7 @@ function operate(operator, num1, num2){
 let calcBtns = [1,2,3,4,5,6,7,8,9,0, ' + ', ' - ',' * ',' / ',' = ','Clear']
 let display = document.getElementById('display');
 let totalDisplay = ''
+let testNum = 0
 let num1 = 0
 let num2 = 0
 
@@ -59,13 +61,7 @@ function createBtn(calcBtns){
         btn.textContent = calcBtns[i]
         btn.value = btn.textContent
 
-        if(btn.textContent === ' = '){
-            btn.addEventListener('click', ()=>{
-                firstNum();
-                secondNum();
-                        })
-        }
-    
+       
         btn.addEventListener('click', ()=>{
 
         if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
@@ -73,29 +69,25 @@ function createBtn(calcBtns){
             totalDisplay = totalDisplay + btn.value
         }
     
-    
+    console.log(totalDisplay)
     })}}
-
 
 
 
 
 createBtn(calcBtns)
 
-
-function firstNum(){
-   num1 = parseInt(totalDisplay.slice(0, totalDisplay.indexOf(' + ')))
-
-}
-
-function secondNum(){
-    num2 = parseInt(totalDisplay.slice(totalDisplay.indexOf(' +')+3))
-}
-
 function test(){
-    console.log(num1+num2)
-}
+    let btn = document.getElementById('buttonContainer').children.item(14)
+    btn.addEventListener('click', ()=>{
+    
+        num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(' + ')))
+        num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(' +')+3))
+    
+    })}
+
 test()
+
 
 // let equals = document.getElementsByClassName('equals')
 // console.log(equals)
@@ -106,8 +98,8 @@ test()
 
 
 
-// const btn = buttonContainer.querySelectorAll('button')      
-// console.log(btn)
+// const btn2 = buttonContainer.querySelectorAll('button')      
+// console.log(btn2)
 
 // function click(){
 
