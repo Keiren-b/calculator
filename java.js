@@ -42,6 +42,10 @@ function operate(operator, num1, num2){
     }
 
     else if (operator === '/'){
+        // if((num1=0) && (num2 = 0)){
+        //     alert ('cannot divide by zero')
+        // }
+        // else 
         result = divide(num1,num2)
         return result
     }
@@ -104,10 +108,17 @@ function test(){
 test()
 
 function updateTextContent(){
-    display.textContent = result
+    answerDisplay.textContent = result
+    num1 = result
+    console.log(num1)
+
 }
 
+function nextEval(){
 
+    if ()
+
+}
 
     
 
