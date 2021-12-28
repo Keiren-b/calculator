@@ -114,13 +114,7 @@ function updateTextContent(){
 
 }
 
-function nextEval(){
 
-    if ()
-
-}
-
-    
 
 
 
