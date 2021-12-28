@@ -40,7 +40,7 @@ function operate(operator, num1, num2){
         let result = divide(num1,num2)
         return result
     }
-
+alert(result)
 }
 
 //button creation
@@ -51,7 +51,7 @@ let totalDisplay = ''
 let testNum = 0
 let num1 = 0
 let num2 = 0
-
+let operator = ''
 
 function createBtn(calcBtns){
 
@@ -69,7 +69,7 @@ function createBtn(calcBtns){
             totalDisplay = totalDisplay + btn.value
         }
     
-    console.log(totalDisplay)
+   
     })}}
 
 
@@ -77,149 +77,40 @@ function createBtn(calcBtns){
 
 createBtn(calcBtns)
 
+function findOperator(){
+    if (totalDisplay.indexOf('+')!=-1){
+        operator = '+'
+    }
+    else if (totalDisplay.search('-')!=-1){
+     operator = '-'
+ }
+ 
+     else if (totalDisplay.search('*')!=-1){
+     operator = '*'
+ }
+     else if (totalDisplay.search('/')!=-1){
+     operator = '/'
+ }}
+
 function test(){
     let btn = document.getElementById('buttonContainer').children.item(14)
     btn.addEventListener('click', ()=>{
     
         num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(' + ')))
         num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(' +')+3))
+        findOperator()
+
+      
+        operate(operator, num1, num2)
     
     })}
 
 test()
 
 
-// let equals = document.getElementsByClassName('equals')
-// console.log(equals)
-// equals.addEventListener('click', ()=> {
-//     something()
-//     somethingElse()
-// } )
 
 
-
-// const btn2 = buttonContainer.querySelectorAll('button')      
-// console.log(btn2)
-
-// function click(){
-
-//     for (let i=0; i<calcBtns.length; i++){
-
-//     btn.addEventListener('click', ()=>{
-
-//         if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
-
-//             display.textContent = display.textContent + btn.textContent
     
 
-//     }
-// })}}
-
-// click()
-
-// btn.forEach(button)addEventListener('click', ()=>{
-
-//     if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
-
-//         display.textContent = display.textContent + btn.textContent
 
 
-//     }})
-
-// let num1=0
-// let num2=1
-// let num3;
-
-// for (i=1; i<parseInt(n); i++){
-//     num3 = num1+num2;
-//     num1 = num2;
-//     num2=num3;
-// }
-
-// return num3
-
-// buttonContainer.classList.add('btnForDisplay');
-
-
-
-
-// const btnNum1 = document.createElement('button')
-// btnNum1.textContent = "1"
-// buttonContainer.appendChild(btnNum1)
-
-
-// const btnNum2 = document.createElement('button')
-// btnNum2.textContent = "2"
-// buttonContainer.appendChild(btnNum2)
-
-// const btnNum3 = document.createElement('button')
-// btnNum3.textContent = "3"
-// buttonContainer.appendChild(btnNum3)
-
-// const btnNum4 = document.createElement('button')
-// btnNum4.textContent = "4"
-// buttonContainer.appendChild(btnNum4)
-
-// const btnNum5 = document.createElement('button')
-// btnNum5.textContent = "5"
-// buttonContainer.appendChild(btnNum5)
-
-// const btnNum6 = document.createElement('button')
-// btnNum6.textContent = "6"
-// buttonContainer.appendChild(btnNum6)
-
-// const btnNum7 = document.createElement('button')
-// btnNum7.textContent = "7"
-// buttonContainer.appendChild(btnNum7)
-
-// const btnNum8 = document.createElement('button')
-// btnNum8.textContent = "8"
-// buttonContainer.appendChild(btnNum8)
-
-// const btnNum9 = document.createElement('button')
-// btnNum9.textContent = "9"
-// buttonContainer.appendChild(btnNum9)
-
-// const btnNum0 = document.createElement('button')
-// btnNum0.textContent = "0"
-// buttonContainer.appendChild(btnNum0)
-
-// const btnAdd = document.createElement('button')
-// btnAdd.textContent = "+"
-// buttonContainer.appendChild(btnAdd)
-
-// const btnSubtract = document.createElement('button')
-// btnSubtract.textContent = "-"
-// buttonContainer.appendChild(btnSubtract)
-
-// const btnMultiply = document.createElement('button')
-// btnMultiply.textContent = "x"
-// buttonContainer.appendChild(btnMultiply)
-
-// const btnDivide = document.createElement('button')
-// btnDivide.textContent = "/"
-// buttonContainer.appendChild(btnDivide)
-
-// const btnEquals = document.createElement('button')
-// btnEquals.textContent = "="
-// buttonContainer.appendChild(btnEquals)
-
-// const btnClear = document.createElement('button')
-// btnClear.textContent = "Clear"
-// buttonContainer.appendChild(btnClear)
-
-
-// btnNum1.addEventListener('click',()=>{
-
-//     document.getElementById('display').textContent = document.getElementById('display').textContent + btnNum1.textContent
-// })
-
-// let children = buttonContainer.children;
-
-
-
-// btnNum1.addEventListener('click' () => 
-
-
-// }
-// )
