@@ -69,9 +69,12 @@ function createBtn(calcBtns){
             display.textContent = display.textContent + btn.value;
             totalDisplay = totalDisplay + btn.value
         }
-    
+        
+        
    
-    })}}
+    })
+        
+}}
 
 
 
@@ -103,6 +106,7 @@ function test(){
         operate(operator, num1, num2)
       
         updateTextContent()
+        nextEval()
      
     })}
 
@@ -116,8 +120,7 @@ function updateTextContent(){
 }
 
 function clear(){
-    const clearbtn = document.getElementById('buttonContainer').children.item(15)
-    clearbtn.addEventListener('click', () => {
+   
         display.textContent=''
         totalDisplay=''
         answerDisplay.textContent=''
@@ -126,12 +129,34 @@ function clear(){
         num2 = 0
         operator = ''
         result = 0
-        // alert('hello')
-    })
+    
 }
 
-clear()
+const clearbtn = document.getElementById('buttonContainer').children.item(15)
+clearbtn.addEventListener('click', clear)
+
+//this assigns class names to the number and operator buttons
+for (let j=0; j<calcBtns.length;j++){
+
+    if(j<=9){
+        const numberBtn = document.getElementById('buttonContainer').children.item(j)
+        numberBtn.className = 'numberBtn'
+        numberBtn.style.color = 'red'
+}
+    else if (j>9 && j<14){
+        const numberBtn = document.getElementById('buttonContainer').children.item(j)
+        numberBtn.className = 'operatorBtn'
+        numberBtn.style.color = 'blue'
+    }}
 
 
 
+// function nextEval(){
+const numberBtn8 = document.getElementsByClassName('numberBtn')
+
+numberBtn8.forEach(numberBtn8 => {
+    addEventListener('click', ()=> {
+        alert('hello')
+    })
+});
 
