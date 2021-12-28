@@ -62,8 +62,8 @@ function createBtn(calcBtns){
         btn.textContent = calcBtns[i]
         btn.value = btn.textContent
 
-       
-        btn.addEventListener('click', ()=>{
+       //this function displays the button value on the screen
+        btn.addEventListener('click', e =>{
 
         if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
             display.textContent = display.textContent + btn.value;
@@ -96,13 +96,14 @@ return operator}
 
 function test(){
     let btn = document.getElementById('buttonContainer').children.item(14)
-    btn.addEventListener('click', ()=>{
+    btn.addEventListener('click', () =>{
         findOperator()
         num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(operator)))
         num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2))
         operate(operator, num1, num2)
-        alert(result)
+      
         updateTextContent()
+     
     })}
 
 test()
@@ -110,10 +111,26 @@ test()
 function updateTextContent(){
     answerDisplay.textContent = result
     num1 = result
-    console.log(num1)
+
 
 }
 
+function clear(){
+    const clearbtn = document.getElementById('buttonContainer').children.item(15)
+    clearbtn.addEventListener('click', () => {
+        display.textContent=''
+        totalDisplay=''
+        answerDisplay.textContent=''
+        testNum = 0
+        num1 = 0
+        num2 = 0
+        operator = ''
+        result = 0
+        // alert('hello')
+    })
+}
+
+clear()
 
 
 
