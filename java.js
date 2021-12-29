@@ -63,23 +63,37 @@ function createBtn(calcBtns){
         btn.value = btn.textContent
 
        //this function displays the button value on the screen
-        btn.addEventListener('click', e =>{
+        // btn.addEventListener('click', e =>{
 
-        if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
-            display.textContent = display.textContent + btn.value;
-            totalDisplay = totalDisplay + btn.value
-        }
+        // if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
+        //     display.textContent = display.textContent + btn.value;
+        //     totalDisplay = totalDisplay + btn.value
+        // }
         
         
    
-    })
+//     })
         
 }}
+// this function separates out the creat buttons function and the function that allows each button to display its value on screen
+function displayBtnValue(){
 
+    document.querySelectorAll('button').forEach(item => {
+        item.addEventListener('click', event =>{
+            if (item.value <=9
+                // !=='Clear' && item.value !==' = '
+                ){
+                display.textContent = display.textContent + item.value;
+                totalDisplay = totalDisplay + item.value
+            }
+        })
+     
+        })}
 
 
 
 createBtn(calcBtns)
+displayBtnValue()
 
 function findOperator(){
     if (totalDisplay.indexOf('+')!=-1){
@@ -164,15 +178,17 @@ for (let j=0; j<calcBtns.length;j++){
 //     })
 // });
  function nextEval(){
-     for (let i=0; i<calcBtns.length; i++){
 
-        const something = document.getElementById('buttonContainer').children.item(0)
-        something.addEventListener('click', ()=>{
-
+    document.querySelectorAll('.numberBtn').forEach(item => {
+        item.addEventListener('click', event =>{
             clear()
             test()
-
         })
+    })
+
+            
+
+        
 
      }
- }
+ 
