@@ -142,7 +142,9 @@ for (let j=0; j<calcBtns.length;j++){
         const numberBtn = document.getElementById('buttonContainer').children.item(j)
         numberBtn.className = 'numberBtn'
         numberBtn.style.color = 'red'
-}
+        }
+    
+
     else if (j>9 && j<14){
         const numberBtn = document.getElementById('buttonContainer').children.item(j)
         numberBtn.className = 'operatorBtn'
@@ -152,11 +154,25 @@ for (let j=0; j<calcBtns.length;j++){
 
 
 // function nextEval(){
-const numberBtn8 = document.getElementsByClassName('numberBtn')
+// const numberBtn8 = document.getElementsByClassName('numberBtn')
 
-numberBtn8.forEach(numberBtn8 => {
-    addEventListener('click', ()=> {
-        alert('hello')
-    })
-});
+// numberBtn8.style.color = 'orange'
 
+// numberBtn8.forEach(numberBtn8 => {
+//     addEventListener('click', ()=> {
+//         alert('hello')
+//     })
+// });
+ function nextEval(){
+     for (let i=0; i<calcBtns.length; i++){
+
+        const something = document.getElementById('buttonContainer').children.item(0)
+        something.addEventListener('click', ()=>{
+
+            clear()
+            test()
+
+        })
+
+     }
+ }
