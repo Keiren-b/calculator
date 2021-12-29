@@ -60,30 +60,20 @@ function createBtn(calcBtns){
         const btn = document.createElement('button');
         buttonContainer.appendChild(btn);
         btn.textContent = calcBtns[i]
-        btn.value = btn.textContent
-
-       //this function displays the button value on the screen
-        // btn.addEventListener('click', e =>{
-
-        // if (calcBtns[i]!=="Clear" && calcBtns[i]!=="="){
-        //     display.textContent = display.textContent + btn.value;
-        //     totalDisplay = totalDisplay + btn.value
-        // }
-        
-        
-   
-//     })
-        
+        btn.value = btn.textContent          
 }}
+
+
 // this function separates out the creat buttons function and the function that allows each button to display its value on screen
 function displayBtnValue(){
 
     document.querySelectorAll('button').forEach(item => {
         item.addEventListener('click', event =>{
-            if (item.value <=9
-                // !=='Clear' && item.value !==' = '
+            if (item.value !=="Clear" && item.value !== " = "
+                
                 ){
                 display.textContent = display.textContent + item.value;
+                //below may be unessary
                 totalDisplay = totalDisplay + item.value
             }
         })
@@ -118,8 +108,8 @@ function test(){
         num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(operator)))
         num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2))
         operate(operator, num1, num2)
-      
         updateTextContent()
+
         nextEval()
      
     })}
@@ -144,6 +134,19 @@ function clear(){
         operator = ''
         result = 0
     
+}
+
+function secondFunction(){
+   
+    display.textContent=''
+    totalDisplay=''
+    answerDisplay.textContent=''
+    testNum = 0
+    num1 = 0
+    num2 = 0
+    operator = ''
+    result = 0
+
 }
 
 const clearbtn = document.getElementById('buttonContainer').children.item(15)
@@ -182,6 +185,7 @@ for (let j=0; j<calcBtns.length;j++){
     document.querySelectorAll('.numberBtn').forEach(item => {
         item.addEventListener('click', event =>{
             clear()
+            
             test()
         })
     })
