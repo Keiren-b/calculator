@@ -1,11 +1,58 @@
 let calcBtns = [1,2,3,4,5,6,7,8,9,0, ' + ', ' - ',' * ',' / ',' = ','Clear']
 let display = document.getElementById('display');
 let totalDisplay = ''
-let testNum = 0
 let num1 = 0
 let num2 = 0
 let operator = ''
 let result = 0
+
+//button creation
+
+
+function createBtn(calcBtns){
+
+    for (let i=0; i<calcBtns.length;i++){
+        const btn = document.createElement('button');
+        buttonContainer.appendChild(btn);
+        btn.textContent = calcBtns[i]
+        btn.value = btn.textContent          
+}}
+
+createBtn(calcBtns)
+
+// this function separates out the creat buttons function and the function that allows each button to display its value on screen
+function displayBtnValue(){
+
+    document.querySelectorAll('button').forEach(item => {
+        item.addEventListener('click', event =>{
+            if (item.value !=="Clear" && item.value !== " = "
+                
+                ){
+
+                display.textContent = display.textContent + item.value;
+                //below may be unessary
+                totalDisplay = totalDisplay + item.value
+            }
+        })
+        })}
+
+displayBtnValue()
+
+function findOperator(){
+        if (totalDisplay.indexOf('+')!=-1){
+            operator = '+'
+        }
+        else if (totalDisplay.indexOf('-')!=-1){
+            operator = '-'
+        }
+            
+        else if (totalDisplay.indexOf('*')!=-1){
+            operator = '*'
+            }
+        else if (totalDisplay.indexOf('/')!=-1){
+            operator = '/'
+        }
+    return operator}
 
 function add(num1,num2){
     return num1+num2
@@ -51,56 +98,6 @@ function operate(operator, num1, num2){
     }
 }
 
-//button creation
-
-
-function createBtn(calcBtns){
-
-    for (let i=0; i<calcBtns.length;i++){
-        const btn = document.createElement('button');
-        buttonContainer.appendChild(btn);
-        btn.textContent = calcBtns[i]
-        btn.value = btn.textContent          
-}}
-
-
-// this function separates out the creat buttons function and the function that allows each button to display its value on screen
-function displayBtnValue(){
-
-    document.querySelectorAll('button').forEach(item => {
-        item.addEventListener('click', event =>{
-            if (item.value !=="Clear" && item.value !== " = "
-                
-                ){
-                display.textContent = display.textContent + item.value;
-                //below may be unessary
-                totalDisplay = totalDisplay + item.value
-            }
-        })
-     
-        })}
-
-
-
-createBtn(calcBtns)
-displayBtnValue()
-
-function findOperator(){
-    if (totalDisplay.indexOf('+')!=-1){
-        operator = '+'
-    }
-    else if (totalDisplay.indexOf('-')!=-1){
-     operator = '-'
- }
- 
-     else if (totalDisplay.indexOf('*')!=-1){
-     operator = '*'
- }
-     else if (totalDisplay.indexOf('/')!=-1){
-     operator = '/'
- }
-return operator}
-
 function test(){
     let btn = document.getElementById('buttonContainer').children.item(14)
     btn.addEventListener('click', () =>{
@@ -108,8 +105,9 @@ function test(){
         num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(operator)))
         num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2))
         operate(operator, num1, num2)
-        updateTextContent()
 
+        updateTextContent()
+        // secondFunction()
         nextEval()
      
     })}
@@ -138,10 +136,14 @@ function clear(){
 
 function secondFunction(){
    
+    document.getElementById('buttonContainer').children.item(0).addEventListener('click', e =>{
+        if (e.target = document.getElementById('buttonContainer').children.item(0)){
+            alert('hello')
+        }
+    })
     display.textContent=''
     totalDisplay=''
     answerDisplay.textContent=''
-    testNum = 0
     num1 = 0
     num2 = 0
     operator = ''
@@ -169,7 +171,31 @@ for (let j=0; j<calcBtns.length;j++){
     }}
 
 
+function nextEval(){
 
+    document.querySelectorAll('button').forEach(item => {
+
+        item.addEventListener('click', e => {
+
+            if (item.value !=="Clear" && item.value !== " = "){
+
+
+        answerDisplay.textContent=""
+        display.textContent=''
+        totalDisplay=''
+        display.textContent = display.textContent + item.value
+        totalDisplay=totalDisplay + item.value
+        num1=0
+        num2=0
+        result=0
+        operator=''
+        
+        }
+    }  
+        )       
+    }
+    )
+}
 // function nextEval(){
 // const numberBtn8 = document.getElementsByClassName('numberBtn')
 
@@ -180,19 +206,28 @@ for (let j=0; j<calcBtns.length;j++){
 //         alert('hello')
 //     })
 // });
- function nextEval(){
+//  function nextEval(){
 
-    document.querySelectorAll('.numberBtn').forEach(item => {
-        item.addEventListener('click', event =>{
-            clear()
+//     document.querySelectorAll('.numberBtn').forEach(item => {
+//         item.addEventListener('click', event =>{
+//             // clear()
+//             // displayBtnValue()
+//             // test()
             
-            test()
-        })
-    })
+//             num1 = event.target
+//             console.log(event.target)
+//             location.reload()
+//         })
+//     })
 
             
 
         
 
-     }
+//      }
  
+
+    //  num1="porcupine"
+    //  num2="fuck"
+    //  operator = 'doodle'
+    //  displayBtnValue()
