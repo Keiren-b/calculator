@@ -110,6 +110,7 @@ function breakUpDisplay(){
 function test(){
     //adds click listener to equals button
     let btn = document.getElementById('buttonContainer').children.item(14)
+    
     btn.addEventListener('click', () =>{
 
         //separates out text content
@@ -118,55 +119,36 @@ function test(){
         operate(operator, num1, num2)
         //updates answer box text content
         answerTextContent() 
+        //
+        let nextBtn = document.querySelectorAll('button')
+        for (let i=0; i<10; i++){
+            nextBtn[i].addEventListener('click', function(e){
+                clear2(e.target.textContent);},{once: true}
 
-            })}
+
+
+
+                
+                )}})}
             
 
-            let something = buttonContainer.querySelectorAll('button')
-            // let something = document.getElementById('something')
-            for (let i=0; i<10;i++){
-                if (nextBtn==null){
-                something[i].addEventListener('click', nextClick(e))}
+            
+
+            
+                   
                 
             
-    }
+
 
 test()
 
-function removeEventListener2(){
-    let something = buttonContainer.querySelectorAll('button')
-    something.removeEventListener('click', nextClick)}
 
-//**** */<button id="some_id1" onclick="alert(this.id)"></button>
-
-
-
-
-function isCalcComplete(){
-if(calcComplete = true){
-let something = buttonContainer.querySelectorAll('button')
-// let something = document.getElementById('something')
-    for (let i=0; i<10;i++){
-        something[i].addEventListener('click', reSet)
-}}
-else if (calcComplete=false){
-    for (let i=0; i<10;i++){
-        something[i].removeEventListener('click', reSet)
-        }
-}
-}
 
 function answerTextContent(){
     answerDisplay.textContent = result
     // num1 = result
 
 
-}
-
-function nextClick(e){
-    nextBtn = e.target
-    console.log(nextBtn)
-    removeEventListener2()
 }
 
 
@@ -182,6 +164,21 @@ function clear(){
         operator = ''
         result = 0
     
+}
+
+
+function clear2(x){
+    
+
+    display.textContent=x
+    totalDisplay=x
+    answerDisplay.textContent=''
+    testNum = 0
+    num1 = 0
+    num2 = 0
+    operator = ''
+    result = 0
+
 }
 const clearbtn = document.getElementById('buttonContainer').children.item(15)
 clearbtn.addEventListener('click', clear)
