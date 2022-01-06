@@ -6,6 +6,7 @@ let num2 = 0
 let operator = ''
 let result = 0
 let calcComplete = false
+let nextBtn = null
 
 //button creation
 
@@ -115,17 +116,31 @@ function test(){
         breakUpDisplay()
         //performs calculations
         operate(operator, num1, num2)
-        //updates answer box text conten
+        //updates answer box text content
         answerTextContent() 
-        calcComplete = true
-        isCalcComplete()
-        calcComplete = false
-        isCalcComplete()
-    })}
-        
 
+            })}
+            
+
+            let something = buttonContainer.querySelectorAll('button')
+            // let something = document.getElementById('something')
+            for (let i=0; i<10;i++){
+                if (nextBtn==null){
+                something[i].addEventListener('click', nextClick(e))}
+                
+            
+    }
 
 test()
+
+function removeEventListener2(){
+    let something = buttonContainer.querySelectorAll('button')
+    something.removeEventListener('click', nextClick)}
+
+//**** */<button id="some_id1" onclick="alert(this.id)"></button>
+
+
+
 
 function isCalcComplete(){
 if(calcComplete = true){
@@ -148,7 +163,11 @@ function answerTextContent(){
 
 }
 
-
+function nextClick(e){
+    nextBtn = e.target
+    console.log(nextBtn)
+    removeEventListener2()
+}
 
 
 function clear(){
@@ -182,7 +201,8 @@ function reSet(e) {
 }
 
     
-
+const x= document.getElementById('something')
+x.removeEventListener('click', reSet)
         
 
 
