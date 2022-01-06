@@ -5,6 +5,7 @@ let num1 = 0
 let num2 = 0
 let operator = ''
 let result = 0
+let calcComplete = false
 
 //button creation
 
@@ -20,7 +21,7 @@ function createBtn(calcBtns){
 
 createBtn(calcBtns)
 
-// this function separates out the creat buttons function and the function that allows each button to display its value on screen
+// this function allows each button to display its value on screen
 function displayBtnValue(){
 
     document.querySelectorAll('button').forEach(item => {
@@ -37,6 +38,7 @@ function displayBtnValue(){
         })}
 
 displayBtnValue()
+
 
 function findOperator(){
         if (totalDisplay.indexOf('+')!=-1){
@@ -98,31 +100,60 @@ function operate(operator, num1, num2){
     }
 }
 
+function breakUpDisplay(){
+    findOperator()
+    num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(operator)))
+    num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2))
+}
+
 function test(){
+    //adds click listener to equals button
     let btn = document.getElementById('buttonContainer').children.item(14)
     btn.addEventListener('click', () =>{
-        findOperator()
-        num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(operator)))
-        num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2))
-        operate(operator, num1, num2)
 
-        updateTextContent()
-        // secondFunction()
-        nextEval()
-     
+        //separates out text content
+        breakUpDisplay()
+        //performs calculations
+        operate(operator, num1, num2)
+        //updates answer box text conten
+        answerTextContent() 
+        calcComplete = true
+        isCalcComplete()
+        calcComplete = false
+        isCalcComplete()
     })}
+        
+
 
 test()
 
-function updateTextContent(){
+function isCalcComplete(){
+if(calcComplete = true){
+let something = buttonContainer.querySelectorAll('button')
+// let something = document.getElementById('something')
+    for (let i=0; i<10;i++){
+        something[i].addEventListener('click', reSet)
+}}
+else if (calcComplete=false){
+    for (let i=0; i<10;i++){
+        something[i].removeEventListener('click', reSet)
+        }
+}
+}
+
+function answerTextContent(){
     answerDisplay.textContent = result
-    num1 = result
+    // num1 = result
 
 
 }
 
+
+
+
 function clear(){
-   
+    
+
         display.textContent=''
         totalDisplay=''
         answerDisplay.textContent=''
@@ -133,69 +164,96 @@ function clear(){
         result = 0
     
 }
-
-function secondFunction(){
-   
-    document.getElementById('buttonContainer').children.item(0).addEventListener('click', e =>{
-        if (e.target = document.getElementById('buttonContainer').children.item(0)){
-            alert('hello')
-        }
-    })
-    display.textContent=''
-    totalDisplay=''
-    answerDisplay.textContent=''
-    num1 = 0
-    num2 = 0
-    operator = ''
-    result = 0
-
-}
-
 const clearbtn = document.getElementById('buttonContainer').children.item(15)
 clearbtn.addEventListener('click', clear)
 
-//this assigns class names to the number and operator buttons
-for (let j=0; j<calcBtns.length;j++){
+function reSet(e) {
 
-    if(j<=9){
-        const numberBtn = document.getElementById('buttonContainer').children.item(j)
-        numberBtn.className = 'numberBtn'
-        numberBtn.style.color = 'red'
-        }
+    display.textContent= e.target.value
+    totalDisplay= e.target.value
+    answerDisplay.textContent=''
+    testNum = 0
+    num1 = 0
+    num2 = 0
+    operator = ''
+    result = 0;
+    calcComplete = false
+
+}
+
     
 
-    else if (j>9 && j<14){
-        const numberBtn = document.getElementById('buttonContainer').children.item(j)
-        numberBtn.className = 'operatorBtn'
-        numberBtn.style.color = 'blue'
-    }}
-
-
-function nextEval(){
-
-    document.querySelectorAll('button').forEach(item => {
-
-        item.addEventListener('click', e => {
-
-            if (item.value !=="Clear" && item.value !== " = "){
-
-
-        answerDisplay.textContent=""
-        display.textContent=''
-        totalDisplay=''
-        display.textContent = display.textContent + item.value
-        totalDisplay=totalDisplay + item.value
-        num1=0
-        num2=0
-        result=0
-        operator=''
         
-        }
-    }  
-        )       
-    }
-    )
-}
+
+
+    
+        
+
+// function secondFunction(){
+   
+//     document.getElementById('buttonContainer').children.item(0).addEventListener('click', e =>{
+//         if (e.target = document.getElementById('buttonContainer').children.item(0)){
+//             alert('hello')
+//         }
+//     })
+//     display.textContent=''
+//     totalDisplay=''
+//     answerDisplay.textContent=''
+//     num1 = 0
+//     num2 = 0
+//     operator = ''
+//     result = 0
+
+// }
+
+
+
+// //this assigns class names to the number and operator buttons
+// for (let j=0; j<calcBtns.length;j++){
+
+//     if(j<=9){
+//         const numberBtn = document.getElementById('buttonContainer').children.item(j)
+//         numberBtn.className = 'numberBtn'
+//         numberBtn.style.color = 'red'
+//         }
+    
+
+//     else if (j>9 && j<14){
+//         const numberBtn = document.getElementById('buttonContainer').children.item(j)
+//         numberBtn.className = 'operatorBtn'
+//         numberBtn.style.color = 'blue'
+//     }}
+
+
+// function nextEval(){
+
+//     document.querySelectorAll('button').forEach(item => {
+
+//         item.addEventListener('click', e => {
+
+//             if (item.value !=="Clear" && item.value !== " = "){
+
+
+//         answerDisplay.textContent=""
+//         display.textContent=''
+//         totalDisplay=''
+//         display.textContent = display.textContent + item.value
+//         totalDisplay=totalDisplay + item.value
+//         num1=0
+//         num2=0
+//         result=0
+//         operator=''
+        
+//         }
+//     }  
+//         )       
+//     }
+//     )
+// }
+
+
+// ****************
+
 // function nextEval(){
 // const numberBtn8 = document.getElementsByClassName('numberBtn')
 
