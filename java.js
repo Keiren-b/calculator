@@ -7,7 +7,8 @@ let operator = ''
 let result = 0
 let calcComplete = false
 let nextBtn = null
-
+let counter = 0
+let clicked = 0
 //button creation
 
 
@@ -119,27 +120,20 @@ function test(){
         operate(operator, num1, num2)
         //updates answer box text content
         answerTextContent() 
-        //
+        // counter += counter
+        
         let nextBtn = document.querySelectorAll('button')
         for (let i=0; i<10; i++){
-            nextBtn[i].addEventListener('click', function(e){
-                clear2(e.target.textContent);},{once: true}
+            nextBtn[i].addEventListener('click', reSet)}}) 
 
-
-
-
-                
-                )}})}
-            
-
-            
-
-            
-                   
-                
-            
-
-
+        if (clicked = 1){
+            let nextBtn = document.querySelectorAll('button')
+            for (let i=0; i<10; i++){
+                nextBtn[i].removeEventListener('click', reSet)
+        }}
+        else  {alert('poopoo')}
+}
+  
 test()
 
 
@@ -167,19 +161,24 @@ function clear(){
 }
 
 
-function clear2(x){
-    
+// function clear2(x){
 
-    display.textContent=x
-    totalDisplay=x
-    answerDisplay.textContent=''
-    testNum = 0
-    num1 = 0
-    num2 = 0
-    operator = ''
-    result = 0
 
-}
+//     display.textContent=x
+//     totalDisplay=x
+//     answerDisplay.textContent=''
+//     testNum = 0
+//     num1 = 0
+//     num2 = 0
+//     operator = ''
+//     result = 0
+//     clicked = 1
+
+// }
+
+// function clickedNumBtn(){
+//     clear2(e.target.value)
+// }
 const clearbtn = document.getElementById('buttonContainer').children.item(15)
 clearbtn.addEventListener('click', clear)
 
@@ -193,7 +192,7 @@ function reSet(e) {
     num2 = 0
     operator = ''
     result = 0;
-    calcComplete = false
+    clicked = 1
 
 }
 
@@ -201,6 +200,22 @@ function reSet(e) {
 const x= document.getElementById('something')
 x.removeEventListener('click', reSet)
         
+function poo(){
+    alert('poo')
+}
+
+function poo2(){
+    for (let i=0;i<somethingBtn.length-1;i++){
+        somethingBtn[i].removeEventListener('click', poo)}}
+
+let somethingBtn = document.querySelectorAll('#something')
+
+for (let i=0;i<somethingBtn.length-1;i++){
+    somethingBtn[i].addEventListener('click', poo)}
+
+let somethingEnd = document.querySelector('.somethingEnd')
+somethingEnd.addEventListener('click', poo2)
+
 
 
     
