@@ -155,36 +155,42 @@ function test(){
   
 test()
 
+// these two functions determine if the next click is a number button, and if so stores that number as the new num 1 
 function listenerOn(e){
-console.log(e.target)
+
      if (e.target.value<10){
          
-    display.textContent= e.target.value
-    totalDisplay= e.target.value
-    answerDisplay.textContent=''
-    testNum = 0
-    num1 = 0
-    num2 = 0
-    operator = ''
-    result = 0;
-    window.removeEventListener('click', listenerOn)
-}}
+        display.textContent= e.target.value
+        totalDisplay= e.target.value
+        answerDisplay.textContent=''
+        testNum = 0
+        num1 = 0
+        num2 = 0
+        operator = ''
+        result = 0;
+        window.removeEventListener('click', listenerOn)
+    }
+
+    else if (e.target.value == " + " || e.target.value == " - "||e.target.value == " * "||e.target.value == " / "){
+
+        display.textContent= result + ' ' + e.target.value
+        totalDisplay= result + ' ' + e.target.value
+        answerDisplay.textContent=''
+        testNum = 0
+        num1 = 0
+        num2 = 0
+        operator = ''
+        result = 0;
+        window.removeEventListener('click', listenerOn)
+}
+}
+
 
 function nextMove(){
  window.addEventListener('click', listenerOn)
      
      }
-    //  else {alert('no poo')}
-   
-
-
-// if (nextMove().value=5){
-//     alert ('poo')
-// }
-// else {alert ('no poo')}
-
-
-
+    
 
 
     
