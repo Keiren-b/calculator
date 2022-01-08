@@ -6,6 +6,7 @@ let num2 = 0
 let operator = ''
 let result = 0
 let operatorCount = 0
+let secondOperator = ''
 
 
 
@@ -79,6 +80,24 @@ function findOperator(){
         }
     return operator}
 
+function findFirstOperatorFromMany(){
+        let slicedDisplay = totalDisplay.slice(0, -3)
+
+        if (slicedDisplay.indexOf('+')!=-1){
+            operator = '+'
+        }
+        else if (slicedDisplay.indexOf('-')!=-1){
+            operator = '-'
+        }
+            
+        else if (slicedDisplay.indexOf('*')!=-1){
+            operator = '*'
+            }
+        else if (slicedDisplay.indexOf('/')!=-1){
+            operator = '/'
+        }
+    return operator}
+
 function add(num1,num2){
     return num1+num2
 }
@@ -98,22 +117,22 @@ function divide(num1,num2){
 
 function operate(operator, num1, num2){
 
-    if (operator === '+'){
+    if (operator == '+'){
         result = add(num1,num2)
         return result
     }
 
-    else if (operator === '-'){
+    else if (operator == '-'){
         result = subtract(num1,num2)
         return result
     }
 
-    else if (operator === '*'){
+    else if (operator == '*'){
         result = multiply(num1,num2)
         return result
     }
 
-    else if (operator === '/'){
+    else if (operator == '/'){
         // if((num1=0) && (num2 = 0)){
         //     alert ('cannot divide by zero')
         // }
@@ -164,10 +183,10 @@ clearbtn.addEventListener('click', clear)
 function test(){
     if (operatorCount>1){
         let secondOperator = totalDisplay.charAt(totalDisplay.length-2)
-        findOperator()
+        findFirstOperatorFromMany()
         // breakUpDisplay()
         num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(operator)))
-        num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2,-3)
+        num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2,-3))
 
         operate(secondOperator, num1, num2)
         answerTextContent() 
