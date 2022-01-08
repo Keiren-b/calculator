@@ -5,13 +5,9 @@ let num1 = 0
 let num2 = 0
 let operator = ''
 let result = 0
-let calcComplete = false
-let nextBtn = null
-let counter = 0
-let clicked = 0
+
+
 //button creation
-
-
 function createBtn(calcBtns){
 
     for (let i=0; i<calcBtns.length;i++){
@@ -108,44 +104,9 @@ function breakUpDisplay(){
     num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2))
 }
 
-function test(){
-    //adds click listener to equals button
-    let btn = document.getElementById('buttonContainer').children.item(14)
-    
-    btn.addEventListener('click', () =>{
-
-        //separates out text content
-        breakUpDisplay()
-        //performs calculations
-        operate(operator, num1, num2)
-        //updates answer box text content
-        answerTextContent() 
-        // counter += counter
-        
-        let nextBtn = document.querySelectorAll('button')
-        for (let i=0; i<10; i++){
-            nextBtn[i].addEventListener('click', reSet)}}) 
-
-        if (clicked = 1){
-            let nextBtn = document.querySelectorAll('button')
-            for (let i=0; i<10; i++){
-                nextBtn[i].removeEventListener('click', reSet)
-        }}
-        else  {alert('poopoo')}
-}
-  
-test()
-
-
-
 function answerTextContent(){
     answerDisplay.textContent = result
-    // num1 = result
-
-
 }
-
-
 function clear(){
     
 
@@ -159,29 +120,6 @@ function clear(){
         result = 0
     
 }
-
-
-// function clear2(x){
-
-
-//     display.textContent=x
-//     totalDisplay=x
-//     answerDisplay.textContent=''
-//     testNum = 0
-//     num1 = 0
-//     num2 = 0
-//     operator = ''
-//     result = 0
-//     clicked = 1
-
-// }
-
-// function clickedNumBtn(){
-//     clear2(e.target.value)
-// }
-const clearbtn = document.getElementById('buttonContainer').children.item(15)
-clearbtn.addEventListener('click', clear)
-
 function reSet(e) {
 
     display.textContent= e.target.value
@@ -193,28 +131,81 @@ function reSet(e) {
     operator = ''
     result = 0;
     clicked = 1
-
 }
+
+const clearbtn = document.getElementById('buttonContainer').children.item(15)
+clearbtn.addEventListener('click', clear)
+
+function test(){
+    //adds click listener to equals button
+    let equalsBtn = document.getElementById('buttonContainer').children.item(14)
+    
+    equalsBtn.addEventListener('click', () =>{
+
+        //separates out text content
+        breakUpDisplay()
+        //performs calculations
+        operate(operator, num1, num2)
+        //updates answer box text content
+        answerTextContent() 
+        // counter += counter
+        nextMove()
+        return  
+})}
+  
+test()
+
+function listenerOn(e){
+console.log(e.target)
+     if (e.target.value<10){
+         
+    display.textContent= e.target.value
+    totalDisplay= e.target.value
+    answerDisplay.textContent=''
+    testNum = 0
+    num1 = 0
+    num2 = 0
+    operator = ''
+    result = 0;
+    window.removeEventListener('click', listenerOn)
+}}
+
+function nextMove(){
+ window.addEventListener('click', listenerOn)
+     
+     }
+    //  else {alert('no poo')}
+   
+
+
+// if (nextMove().value=5){
+//     alert ('poo')
+// }
+// else {alert ('no poo')}
+
+
+
+
 
     
-const x= document.getElementById('something')
-x.removeEventListener('click', reSet)
+// const x= document.getElementById('something')
+// x.removeEventListener('click', reSet)
         
-function poo(){
-    alert('poo')
-}
+// function poo(){
+//     alert('poo')
+// }
 
-function poo2(){
-    for (let i=0;i<somethingBtn.length-1;i++){
-        somethingBtn[i].removeEventListener('click', poo)}}
+// function poo2(){
+//     for (let i=0;i<somethingBtn.length-1;i++){
+//         somethingBtn[i].removeEventListener('click', poo)}}
 
-let somethingBtn = document.querySelectorAll('#something')
+// let somethingBtn = document.querySelectorAll('#something')
 
-for (let i=0;i<somethingBtn.length-1;i++){
-    somethingBtn[i].addEventListener('click', poo)}
+// for (let i=0;i<somethingBtn.length-1;i++){
+//     somethingBtn[i].addEventListener('click', poo)}
 
-let somethingEnd = document.querySelector('.somethingEnd')
-somethingEnd.addEventListener('click', poo2)
+// let somethingEnd = document.querySelector('.somethingEnd')
+// somethingEnd.addEventListener('click', poo2)
 
 
 
