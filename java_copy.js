@@ -303,8 +303,8 @@ function findOperator(){
 function findNumbers(){
     test1 = firstArray.slice(0, operatorIndex)
     test2 = firstArray.slice(operatorIndex+1, firstArray.length-1)
-    num1 = parseInt(test1.join(''))
-    num2 = parseInt(test2.join(''))
+    num1 = parseFloat(test1.join(''))
+    num2 = parseFloat(test2.join(''))
 }
     
 
