@@ -42,15 +42,19 @@ createBtn(calcBtns)
 
 function searchArray(){
     let operatorCheck = firstArray.filter(element => element == "+" || element == "-" || element == "*" || element == "/" )
-    if (firstArray.includes('Clear')===true){
-        alert ('clear page')
-    }
+    // if (firstArray.includes('Clear')===true){
+        
+    // }
 
-    else if (firstArray.includes('=')===true){
-        alert ('Evaluate function on two numbers')
+    if (firstArray.includes('=')===true){
+        
         findOperator()
         operatorIndex = firstArray.indexOf(operator)
-        findNumbers()
+        findNumbers()   
+
+            if (num1==0&&num2==0&&operator=='/'){
+                alert ('Cannot divide by Zero')}
+      
         operate(operator, num1, num2)
         answerDisplay.textContent = result
         
@@ -102,6 +106,7 @@ function findNumbers(){
     num1 = parseInt(test1.join(''))
     num2 = parseInt(test2.join(''))
 }
+    
 
 function add(num1,num2){
     return num1+num2
@@ -155,4 +160,19 @@ function Next(){
     console.log(firstArray)
    calcDisplay.textContent = num1 + operator
 
+}
+
+const clearbtn = document.getElementById('buttonContainer').children.item(15)
+clearbtn.addEventListener('click', clear)
+
+function clear(){
+    
+
+    display.textContent=''
+    answerDisplay.textContent=''
+    testNum = 0
+    num1 = 0
+    num2 = 0
+    operator = ''
+    result = 0
 }
