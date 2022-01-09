@@ -153,5 +153,6 @@ function Next(){
     console.log(firstArray)
     firstArrau = firstArray.push(num1, operator)
     console.log(firstArray)
+   calcDisplay.textContent = num1 + operator
 
 }
