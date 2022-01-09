@@ -229,7 +229,7 @@ function test(){
   
 
 
-let equalsBtn = document.getElementById('buttonContainer').children.item(14)
+let equalsBtn = 
 equalsBtn.addEventListener('click', test)
 
 

@@ -1,4 +1,4 @@
-let calcBtns = [1,2,3,4,5,6,7,8,9,0, '+', '-','*','/','=', 'Clear']
+let calcBtns = [1,2,3,4,5,6,7,8,9,0, '+', '-','*','/','=', '.', 'Clear']
 let clickBtnTarget = ''
 let firstArray = []
 let calcDisplay = document.getElementById('display')
@@ -10,7 +10,7 @@ let operator = ''
 let operatorIndex = ''
 let secondOperator = ''
 let result = ''
-
+let calc = 0
 
 
 
@@ -32,11 +32,9 @@ function createBtn(calcBtns){
         buttonContainer.appendChild(btn);
         btn.textContent = calcBtns[i]
         btn.value = btn.textContent 
-        btn.addEventListener('click', clickTarget)
-        
-
-
+        btn.addEventListener('click', clickTarget)    
 }}
+
 
 createBtn(calcBtns)
 
@@ -58,11 +56,15 @@ function searchArray(){
         operate(operator, num1, num2)
         answerDisplay.textContent = result
         
+        let y = document.getElementById('buttonContainer').children
+
+        for (let i=0; i<calcBtns.length; i++){
+            y[i].removeEventListener('click', clickTarget)
+        }
+        calc = 1
         }
     
-
-    
-    else if (operatorCheck.length > 1){
+    if (operatorCheck.length > 1){
         
         findOperator()
         operatorIndex = firstArray.indexOf(operator)
@@ -103,8 +105,8 @@ function findOperator(){
 function findNumbers(){
     test1 = firstArray.slice(0, operatorIndex)
     test2 = firstArray.slice(operatorIndex+1, firstArray.length-1)
-    num1 = parseInt(test1.join(''))
-    num2 = parseInt(test2.join(''))
+    num1 = parseFloat(test1.join(''))
+    num2 = parseFloat(test2.join(''))
 }
     
 
@@ -156,18 +158,20 @@ function operate(operator, num1, num2){
 function Next(){
     firstArray = [];
     console.log(firstArray)
-    firstArrau = firstArray.push(num1, operator)
+    firstArray = firstArray.push(num1, operator)
     console.log(firstArray)
    calcDisplay.textContent = num1 + operator
 
 }
 
-const clearbtn = document.getElementById('buttonContainer').children.item(15)
+const clearbtn = document.getElementById('buttonContainer').children.item(16)
 clearbtn.addEventListener('click', clear)
 
 function clear(){
-    
-
+    if (calc=1) {
+        location.reload()
+    }
+    calc = 0
     display.textContent=''
     answerDisplay.textContent=''
     testNum = 0
@@ -176,3 +180,7 @@ function clear(){
     operator = ''
     result = 0
 }
+
+
+
+
