@@ -53,20 +53,30 @@ function searchArray(){
         findNumbers()
         operate(operator, num1, num2)
         answerDisplay.textContent = result
+        
         }
     
 
     
     else if (operatorCheck.length > 1){
-        alert ('multiple operators')
+        
         findOperator()
         operatorIndex = firstArray.indexOf(operator)
         findNumbers()
         secondOperator = firstArray[firstArray.length-1]
+        operate(operator, num1, num2)
+        answerDisplay.textContent = result
 
+        num1=result
+        operator=secondOperator
 
+        Next()
+        
         //rememebr operator check isn't define as a global variable here, so any functions involving the second operator can only be performed here
     }
+
+
+
 }
 
 
@@ -135,4 +145,13 @@ function operate(operator, num1, num2){
         result = divide(num1,num2)
         return result
     }
+}
+
+
+function Next(){
+    firstArray = [];
+    console.log(firstArray)
+    firstArrau = firstArray.push(num1, operator)
+    console.log(firstArray)
+
 }
