@@ -198,7 +198,7 @@
 
 // // }
 
-let calcBtns = [1,2,3,4,5,6,7,8,9,0, '+', '-','*','/','=', 'Clear']
+let calcBtns = [1,2,3,4,5,6,7,8,9,0, '+', '-','*','/','=', '.', 'Del', 'Clear']
 let clickBtnTarget = ''
 let firstArray = []
 let calcDisplay = document.getElementById('display')
@@ -245,6 +245,7 @@ function searchArray(){
     // if (firstArray.includes('Clear')===true){
         
     // }
+
 
     if (firstArray.includes('=')===true){
         
@@ -362,7 +363,7 @@ function Next(){
 
 }
 
-const clearbtn = document.getElementById('buttonContainer').children.item(15)
+const clearbtn = document.getElementById('buttonContainer').children.item(calcBtns.length-1)
 clearbtn.addEventListener('click', clear)
 
 function clear(){
@@ -376,6 +377,16 @@ function clear(){
     operator = ''
     result = 0
 }
+
+const delBtn = document.getElementById('buttonContainer').children.item(calcBtns.length-2)
+delBtn.addEventListener('click', ()=>{
+
+    let slicedArray = firstArray.slice(0, firstArray.length-2)
+    firstArray = slicedArray
+    let string = calcDisplay.textContent.toString()
+    let slicedString = string.slice(0, string.length-4)
+    calcDisplay.textContent = slicedString
+})
 
 document.addEventListener('keydown', (event) => {
 
