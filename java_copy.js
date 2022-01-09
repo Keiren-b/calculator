@@ -210,7 +210,7 @@ let operator = ''
 let operatorIndex = ''
 let secondOperator = ''
 let result = ''
-
+let counter = 0
 
 
 
@@ -246,6 +246,19 @@ function searchArray(){
         
     // }
 
+    let filter = firstArray.filter(element => element =='.')
+    let opFilter = firstArray.filter(element => element =='+' || element == '-' || element=='*' || element == '/')
+
+    if (opFilter.length>0&&filter.length>2)
+    {
+        alert ('Error')
+        location.reload()
+    }
+
+    else if (opFilter.length ==0 && filter.length>1){
+        alert ('Error')
+        location.reload()
+    }
 
     if (firstArray.includes('=')===true){
         
@@ -257,9 +270,40 @@ function searchArray(){
                 alert ('Cannot divide by Zero')}
       
         operate(operator, num1, num2)
-        answerDisplay.textContent = result
+        answerDisplay.textContent = result  
         
+        let y = document.getElementById('buttonContainer').children
+        for (let i=0; i<calcBtns.length; i++){
+            y[i].removeEventListener('click', clickTarget)
+            y[i].removeEventListener('click', clear)
+            y[i].removeEventListener('click', deleteBtn)
+
+            y[calcBtns.length-1].addEventListener('click', ()=>{
+                location.reload()
+            })
         }
+        window.addEventListener('click', ()=>{
+            
+            counter += 1
+            console.log(counter)
+            if (counter >4){
+                location.reload()
+            }
+        })
+        
+
+        
+        window.removeEventListener('keydown', keyPress)
+
+        window.addEventListener('keydown', ()=>{
+            
+            counter += 1
+            console.log(counter)
+            if (counter >4){
+                location.reload()
+            }
+        })}
+        
     
 
     
@@ -368,7 +412,7 @@ clearbtn.addEventListener('click', clear)
 
 function clear(){
     
-
+    firstArray = []
     display.textContent=''
     answerDisplay.textContent=''
     testNum = 0
@@ -376,30 +420,43 @@ function clear(){
     num2 = 0
     operator = ''
     result = 0
+
+}
+function equalsClear(){
+    
+
+    display.textContent=''
+    testNum = 0
+    num1 = 0
+    num2 = 0
+    operator = ''
+    result = 0
+
 }
 
-const delBtn = document.getElementById('buttonContainer').children.item(calcBtns.length-2)
-delBtn.addEventListener('click', ()=>{
-
+function deleteBtn(){
     let slicedArray = firstArray.slice(0, firstArray.length-2)
     firstArray = slicedArray
     let string = calcDisplay.textContent.toString()
     let slicedString = string.slice(0, string.length-4)
     calcDisplay.textContent = slicedString
-})
+}
 
-document.addEventListener('keydown', (event) => {
+const delBtn = document.getElementById('buttonContainer').children.item(calcBtns.length-2)
+delBtn.addEventListener('click', deleteBtn)
+
+function keyPress(event){
 
     let allowedKeyboardBtns = ['1','2','3','4','5','6','7','8','9','0', '+', '-','*','/','=', '.', 'Enter']
 
-    
-    if (allowedKeyboardBtns.includes(event.key)){
+            
+            if (allowedKeyboardBtns.includes(event.key)){
 
-        if(event.key==='Enter'){
-            firstArray.push('=')
-            console.log('=')
-            calcDisplay.textContent = calcDisplay.textContent + '='
-    
+                if(event.key==='Enter'){
+                    firstArray.push('=')
+                    console.log('=')
+                    calcDisplay.textContent = calcDisplay.textContent + '='
+            
 
          searchArray()
         }
@@ -410,7 +467,10 @@ document.addEventListener('keydown', (event) => {
             
 
             searchArray()
-            }
+            }                   
         }
-    
-})
+
+}
+
+document.addEventListener('keydown', keyPress)
+
