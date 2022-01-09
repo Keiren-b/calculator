@@ -35,6 +35,10 @@ createBtn(calcBtns)
 
 function searchArray(){
 
+    if (firstArray.includes('Clear')===true){
+        alert ('clear page')
+    }
+
     if (firstArray.includes(' = ')===true){
         alert ('Evaluate function on two numbers')
     }
