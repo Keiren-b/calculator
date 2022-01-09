@@ -6,10 +6,11 @@ let num2 = 0
 let operator = ''
 let result = 0
 let operatorCount = 0
+let evalCount = 0
 let secondOperator = ''
 
 
-
+ window.addEventListener('click', listenerOn)
 
 
 
@@ -39,6 +40,9 @@ function displayBtnValue(){
                     display.textContent = display.textContent + item.value;
                     //below may be unessary
                     totalDisplay = totalDisplay + item.value;
+            }
+            if (item.value == " = "){
+                operatorCount=0
             }
             if (item.value == " + " || item.value == " - " ||item.value == " * " ||item.value == " / "){
                 operatorCount++
@@ -80,23 +84,23 @@ function findOperator(){
         }
     return operator}
 
-function findFirstOperatorFromMany(){
-        let slicedDisplay = totalDisplay.slice(0, -3)
+// function findFirstOperatorFromMany(){
+//         let slicedDisplay = totalDisplay.slice(0, -3)
 
-        if (slicedDisplay.indexOf('+')!=-1){
-            operator = '+'
-        }
-        else if (slicedDisplay.indexOf('-')!=-1){
-            operator = '-'
-        }
+//         if (slicedDisplay.indexOf('+')!=-1){
+//             operator = '+'
+//         }
+//         else if (slicedDisplay.indexOf('-')!=-1){
+//             operator = '-'
+//         }
             
-        else if (slicedDisplay.indexOf('*')!=-1){
-            operator = '*'
-            }
-        else if (slicedDisplay.indexOf('/')!=-1){
-            operator = '/'
-        }
-    return operator}
+//         else if (slicedDisplay.indexOf('*')!=-1){
+//             operator = '*'
+//             }
+//         else if (slicedDisplay.indexOf('/')!=-1){
+//             operator = '/'
+//         }
+//     return operator}
 
 function add(num1,num2){
     return num1+num2
@@ -143,6 +147,9 @@ function operate(operator, num1, num2){
 }
 
 function breakUpDisplay(){
+    if (operatorCount>1){
+        secondOperator = totalDisplay.slice(-2,-1)
+    }
     findOperator()
     num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(operator)))
     num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2))
@@ -162,6 +169,7 @@ function clear(){
         num2 = 0
         operator = ''
         result = 0
+        evalCount = 0
     
 }
 function reSet(e) {
@@ -181,34 +189,24 @@ const clearbtn = document.getElementById('buttonContainer').children.item(15)
 clearbtn.addEventListener('click', clear)
 
 function test(){
-    if (operatorCount>1){
-        let secondOperator = totalDisplay.charAt(totalDisplay.length-2)
-        findFirstOperatorFromMany()
-        // breakUpDisplay()
-        num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(operator)))
-        num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2,-3))
+    // if (operatorCount>1){
+        
+    //     breakUpDisplay()
+    //     num1=parseInt(totalDisplay.slice(0, totalDisplay.indexOf(operator)))
+    //     num2=parseInt(totalDisplay.slice(totalDisplay.indexOf(operator)+2,-3))
 
-        operate(secondOperator, num1, num2)
-        answerTextContent() 
-        display.textContent= result + " " + totalDisplay.charAt(totalDisplay.length-2) + " "
-        totalDisplay= result + " " + totalDisplay.charAt(totalDisplay.length-2) + " "
-        answerDisplay.textContent=result
-        testNum = 0
-        num1 = 0
-        num2 = 0
-        operator = ''
-        operatorCount = 1
-        // result = 0;
-       
-    }
-    //adds click listener to equals button
-    let equalsBtn = document.getElementById('buttonContainer').children.item(14)
-
-    
-    
-   
-    equalsBtn.addEventListener('click', () =>{
-        operatorCount = 0
+    //     operate(secondOperator, num1, num2)
+    //     answerTextContent() 
+    //     display.textContent= result + " " + totalDisplay.charAt(totalDisplay.length-2) + " "
+    //     totalDisplay= result + " " + totalDisplay.charAt(totalDisplay.length-2) + " "
+    //     answerDisplay.textContent=result
+    //     testNum = 0
+    //     num1 = 0
+    //     num2 = 0
+    //     operator = ''
+    //     operatorCount = 1
+    //     // result = 0;
+        evalCount++
         //separates out text content
         breakUpDisplay()
         //performs calculations
@@ -216,16 +214,34 @@ function test(){
         //updates answer box text content
         answerTextContent() 
         // counter += counter
-        nextMove()
+        // nextMove()
         return  
-})}
+    }
+    //adds click listener to equals button
+    
+
+    
+    
+   
+    
+        
+
   
-test()
+
+
+let equalsBtn = document.getElementById('buttonContainer').children.item(14)
+equalsBtn.addEventListener('click', test)
+
+
 
 // these two functions determine if the next click is a number button, and if so stores that number as the new num 1 
 function listenerOn(e){
 
-     if (e.target.value<10){
+    if (evalCount=0){
+        return
+    }
+
+     else if (evalCount>0 && e.target.value<10){
          
         display.textContent= e.target.value
         totalDisplay= e.target.value
@@ -253,10 +269,10 @@ function listenerOn(e){
 }
 
 
-function nextMove(){
- window.addEventListener('click', listenerOn)
+// function nextMove(){
+//  window.addEventListener('click', listenerOn)
      
-     }
+//      }
     
 
 
