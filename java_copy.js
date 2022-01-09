@@ -286,7 +286,7 @@ function searchArray(){
             
             counter += 1
             console.log(counter)
-            if (counter >4){
+            if (counter >1){
                 location.reload()
             }
         })
@@ -299,7 +299,7 @@ function searchArray(){
             
             counter += 1
             console.log(counter)
-            if (counter >4){
+            if (counter >1){
                 location.reload()
             }
         })}
