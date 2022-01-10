@@ -198,12 +198,12 @@
 
 // // }
 
-let calcBtns = [1,2,3,4,5,6,7,8,9,0, '+', '-','*','/','=', '.', 'Del', 'Clear']
+let calcBtns = ['Clear', 'Del', 'Neg', '/', 7, 8, 9, '*', 4,5,6,'-',1,2,3,'+', 0, '.', '=']
+// [1,2,3,4,5,6,7,8,9,0, '+', '-','*','/','=', '.', 'Del', 'Clear']
 let clickBtnTarget = ''
 let firstArray = []
 let calcDisplay = document.getElementById('display')
 let answerDisplay = document.getElementById('answerDisplay')
-calcDisplay.style.backgroundColor='pink'
 let num1=0
 let num2=0
 let operator = ''
@@ -233,6 +233,7 @@ function createBtn(calcBtns){
         btn.textContent = calcBtns[i]
         btn.value = btn.textContent 
         btn.addEventListener('click', clickTarget)
+        btn.classList.add('calcBtn')
         
 
 
@@ -407,7 +408,7 @@ function Next(){
 
 }
 
-const clearbtn = document.getElementById('buttonContainer').children.item(calcBtns.length-1)
+const clearbtn = document.getElementById('buttonContainer').children.item(0)
 clearbtn.addEventListener('click', clear)
 
 function clear(){
@@ -442,7 +443,7 @@ function deleteBtn(){
     calcDisplay.textContent = slicedString
 }
 
-const delBtn = document.getElementById('buttonContainer').children.item(calcBtns.length-2)
+const delBtn = document.getElementById('buttonContainer').children.item(1)
 delBtn.addEventListener('click', deleteBtn)
 
 function keyPress(event){
