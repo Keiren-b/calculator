@@ -198,7 +198,7 @@
 
 // // }
 
-let calcBtns = ['Clear', 'Del', 'Neg', '/', 7, 8, 9, '*', 4,5,6,'-',1,2,3,'+', 0, '.', '=']
+let calcBtns = ['Clear', 'Del', 'Neg', '÷', 7, 8, 9, 'x', 4,5,6,'-',1,2,3,'+', 0, '.', '=']
 // [1,2,3,4,5,6,7,8,9,0, '+', '-','*','/','=', '.', 'Del', 'Clear']
 let clickBtnTarget = ''
 let firstArray = []
@@ -234,21 +234,27 @@ function createBtn(calcBtns){
         btn.value = btn.textContent 
         btn.addEventListener('click', clickTarget)
         btn.classList.add('calcBtn')
+}
+    // let btn = document.getElementById('buttonContainer').children 
+    //     for (let i=0; i<calcBtns.length; i++){
+    //         const span = document.createElement('span')
+    //         btn[i].appendChild(span)
+    //         span.classList.add('front')
+    //     }
+    
         
-
-
-}}
+}
 
 createBtn(calcBtns)
 
 function searchArray(){
-    let operatorCheck = firstArray.filter(element => element == "+" || element == "-" || element == "*" || element == "/" )
+    let operatorCheck = firstArray.filter(element => element == "+" || element == "-" || element == "x" || element == "÷" )
     // if (firstArray.includes('Clear')===true){
         
     // }
 
     let filter = firstArray.filter(element => element =='.')
-    let opFilter = firstArray.filter(element => element =='+' || element == '-' || element=='*' || element == '/')
+    let opFilter = firstArray.filter(element => element =='+' || element == '-' || element=='x' || element == '÷')
 
     if (opFilter.length>0&&filter.length>2)
     {
@@ -267,7 +273,7 @@ function searchArray(){
         operatorIndex = firstArray.indexOf(operator)
         findNumbers()   
 
-            if (num1==0&&num2==0&&operator=='/'){
+            if (num1==0&&num2==0&&operator=='÷'){
                 alert ('Cannot divide by Zero')}
       
         operate(operator, num1, num2)
@@ -338,11 +344,11 @@ function findOperator(){
         operator = '-'
     }
         
-    else if (firstArray.indexOf('*')!=-1){
-        operator = '*'
+    else if (firstArray.indexOf('x')!=-1){
+        operator = 'x'
         }
-    else if (firstArray.indexOf('/')!=-1){
-        operator = '/'
+    else if (firstArray.indexOf('÷')!=-1){
+        operator = '÷'
     }
 }
 
@@ -383,12 +389,12 @@ function operate(operator, num1, num2){
         return result
     }
 
-    else if (operator == '*'){
+    else if (operator == 'x'){
         result = multiply(num1,num2)
         return result
     }
 
-    else if (operator == '/'){
+    else if (operator == '÷'){
         // if((num1=0) && (num2 = 0)){
         //     alert ('cannot divide by zero')
         // }
@@ -457,9 +463,20 @@ function keyPress(event){
                     firstArray.push('=')
                     console.log('=')
                     calcDisplay.textContent = calcDisplay.textContent + '='
-            
-
+                
          searchArray()
+        }
+
+        else if(event.key==='/'){
+            firstArray.push('÷')
+            console.log('÷')
+            calcDisplay.textContent = calcDisplay.textContent + '÷'
+        }
+
+        else if(event.key==='*'){
+            firstArray.push('x')
+            console.log('x')
+            calcDisplay.textContent = calcDisplay.textContent + 'x'
         }
         else {    
             firstArray.push(event.key)

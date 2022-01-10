@@ -9,7 +9,7 @@ html {
 }
 
 title {
-    display: flex;
+    
     align-items: center;
     justify-content: center;
 }
@@ -71,7 +71,7 @@ title {
 
 #buttonContainer {
     display: grid;
-    grid-gap: 4px 4px;
+    grid-gap: 6px 6px;
     grid-template-columns: 20% 20% 20% 20%;
     height: 500px;
     max-width: 500px;
@@ -102,3 +102,7 @@ button {
     grid-column: 3 / span 2;
     border-radius: 15px;
       }
+
+  
+
+     
