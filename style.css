@@ -1,34 +1,58 @@
-#container {
+* {
+    color: cornsilk;
+    font-size: 24px;
+    font-family: 'georgia';
     
+}
+html {
+    height:100vh;
+}
+
+title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#container {
+    background-image: url(/Users/keirenbrandt-sawdy/repos/calculator/old-painted-wood-2-900x900.webp);
+    height:100vh;
 }
 
 #calculator {
     max-width: 500px;
     height: auto;
     margin: auto;
-    border: 3px solid #73AD21;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-radius: 10px;
-    
+    background-color: #731f00;
+    background-image: url(/Users/keirenbrandt-sawdy/repos/calculator/wood-pattern.png)
+
+
     
 }
 
 #display {
     height: 50px;
-    max-width: 400px;
+    max-width: 340px;
     margin: auto;
     margin-top: 20px;
-    border: 3px solid #73AD21;
+    border: 3px solid hsl(23, 100%, 15%);
     padding-top: 20px;
     border-bottom: none;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    background-color:#ffdead42;
+    background-image: url(/Users/keirenbrandt-sawdy/repos/calculator/wood-pattern.png);
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #answerDisplay {
     height: 50px;
-    max-width: 400px;
+    max-width: 340px;
     margin: auto;
-    border: 3px solid #73AD21;
+    border: 3px solid hsl(23, 100%, 15%);
     border-top: none;
     display: flex;
     justify-content: flex-end;
@@ -36,6 +60,12 @@
     margin-bottom: 20px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    background-color:#ffdead42;
+    background-image: url(/Users/keirenbrandt-sawdy/repos/calculator/wood-pattern.png);
+    font-size: 32px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
@@ -46,20 +76,29 @@
     height: 500px;
     max-width: 500px;
     margin: 20px;
-    border: 3px solid #73AD21;
+    border: 3px solid hsl(23, 100%, 15%);
     justify-content: center;
+    align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    border-radius: 10gitpx;
-}
+    border-radius: 10px;
+    background-color:#ffdead42;
+    background-image: url(/Users/keirenbrandt-sawdy/repos/calculator/wood-pattern.png)
 
+}
  
 
 button {
-    border-radius: 50px
+    border-radius: 15px;
+    height: 70%;
+    background-color:#2b0101;
+    background-image: url(/Users/keirenbrandt-sawdy/repos/calculator/wood-pattern.png);
+    border: none;
+    
+     
 }
 
 #buttonContainer :nth-child(19) {
     grid-column: 3 / span 2;
-    border-radius: 50px
+    border-radius: 15px;
       }
